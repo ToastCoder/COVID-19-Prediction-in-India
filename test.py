@@ -1,7 +1,6 @@
 # TESTING FILE
 
 # IMPORTING REQUIRED MODULES
-import numpy as np
 import pandas as pd
 import pickle
 from sklearn.preprocessing import PolynomialFeatures

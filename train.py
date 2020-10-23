@@ -19,7 +19,7 @@ x = data.iloc[:,1:2].values
 y = data.iloc[:,2].values
 
 # FITTING THE DATA
-poly = PolynomialFeatures(degree = 4)
+poly = PolynomialFeatures(degree = 6)
 poly_x = poly.fit_transform(x)
 poly.fit(poly_x,y)
 poly_model = LinearRegression()

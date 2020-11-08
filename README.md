@@ -2,7 +2,7 @@
 
 ### About:
 
-The algorithm predicts the number of COVID-19 cases in India for the particular day which is provided.
+The code predicts the number of COVID-19 cases in India for the particular day which is provided. Uses Polynomial Regression.
 
 ### Developed by:
 

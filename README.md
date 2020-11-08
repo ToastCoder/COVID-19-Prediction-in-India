@@ -22,9 +22,23 @@ The algorithm predicts the number of COVID-19 cases in India for the particular 
 
 There is a script which simplifies the environment and execution process.
 
-Execute the autorun.sh script in terminal.
+1. Execute the autorun.sh script in terminal.
 
 ![shellimg1](https://github.com/ToastCoder/COVID-19-Prediction-in-India/blob/master/images/img1.png)
+
+2. Press Y for executing the script.
+
+3. Enter the password if asked.
+
+![shellimg2](https://github.com/ToastCoder/COVID-19-Prediction-in-India/blob/master/images/img2.png)
+
+4. This will install the dependencies and runs the code in order.
+
+5. Enter the date in the specified string format.
+
+![shellimg3](https://github.com/ToastCoder/COVID-19-Prediction-in-India/blob/master/images/img3.png)
+
+6. You will see the predicted number of cases and deaths on the specified date. Happy coding!
 
 ### Development Status:
 

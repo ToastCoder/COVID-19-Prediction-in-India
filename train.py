@@ -10,7 +10,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.metrics import r2_score
 import pickle
 
 # READING DATASET
@@ -50,8 +49,8 @@ plt.ylabel('Deaths')
 plt.show()
 
 # CALCULATING ACCURACY OF THE TWO MODELS
-print(f"The estimated accuracy for model for predicting cases is {round(r2_score(y_cases,rfr1.predict(x))*100,4)} %")
-print(f"The estimated accuracy for model for predicting deaths is {round(r2_score(y_deaths,rfr2.predict(x))*100,4)} %")
+print(f"The estimated accuracy for model for predicting cases is {round(rfr1.score(x,y_cases)*100,4)} %")
+print(f"The estimated accuracy for model for predicting deaths is {round(rfr2.score(x,y_deaths)*100,4)} %")
 
 # SAVING THE MODEL
 pickle.dump(rfr1,open("model/covid_model_cases.pkl","wb"))

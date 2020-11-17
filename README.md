@@ -2,7 +2,7 @@
 
 ### About:
 
-The code predicts the number of COVID-19 cases in India for the particular day which is provided. Uses Polynomial Regression.
+The code predicts the number of COVID-19 cases in India for the particular day which is provided. Uses Random Forest Regression.
 
 ### Developed by:
 

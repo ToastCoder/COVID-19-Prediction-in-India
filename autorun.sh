@@ -7,8 +7,17 @@ echo "To proceed enter Y, To cancel press N"
 read response
 if (($response == "y" || $response =="Y"))
 then
-    sudo apt install python3 -y
-    sudo apt install python3-pip -y 
+
+    if which python3 >/dev/null;
+    then
+        sudo apt install python3 -y
+    fi
+
+    if which pip3 >/dev/null;
+    then
+        sudo apt install python3-pip -y 
+    fi
+    
     pip3 install numpy
     pip3 install pandas
     pip3 install sklearn

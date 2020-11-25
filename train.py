@@ -1,14 +1,15 @@
 # COVID19 PREDICTION IN INDIA
 
+# FILE NAME: train.py
+
 # DEVELOPED BY: Vigneshwar Ravichandar
-# TOPICS: Regression, Polynomial Regression, Machine Learning
+# TOPICS: Regression, Random Forest Regression, Machine Learning
 
 # IMPORTING REQUIRED MODULES
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-from sklearn.linear_model import LinearRegression
-from sklearn.preprocessing import PolynomialFeatures
+from sklearn.ensemble import RandomForestRegressor
 import pickle
 
 # READING DATASET
@@ -16,37 +17,41 @@ data = pd.read_csv("data/covid_data.csv")
 
 # SEGMENTING DATA
 x = data.iloc[:,1:2].values
-y1 = data.iloc[:,2].values
-y2 = data.iloc[:,3].values
+y_cases = data.iloc[:,2].values
+y_deaths = data.iloc[:,3].values
 
-# FITTING THE DATA
-poly1 = PolynomialFeatures(degree = 4)
-poly_x1 = poly1.fit_transform(x)
-poly1.fit(poly_x1,y1)
-poly_model1 = LinearRegression()
-poly_model1.fit(poly_x1,y1)
+# CREATING AND TRAINING THE MODELS
 
-poly2 = PolynomialFeatures(degree = 4)
-poly_x2 = poly2.fit_transform(x)
-poly2.fit(poly_x2,y2)
-poly_model2 = LinearRegression()
-poly_model2.fit(poly_x1,y2)
+# MODEL FOR PREDICTING CASES
+rfr1 = RandomForestRegressor(n_estimators = 100)
+rfr1.fit(x,y_cases)
+
+# MODEL FOR PREDICTING DEATHS
+rfr2 = RandomForestRegressor(n_estimators = 100)
+rfr2.fit(x,y_deaths)
 
 # PLOTTING DATA
-plt.scatter(x, y1, color = 'blue')
-plt.plot(x, poly_model1.predict(poly_x1), color = 'green')
+
+# PLOT FOR VISUALIZING CASES
+plt.scatter(x,y_cases, color = 'blue')
+plt.plot(x, rfr1.predict(x), color = 'red')
 plt.title('Covid-19 Cases (Days vs Cases)')
 plt.xlabel('Days')
 plt.ylabel('Cases')
 plt.show()
 
-plt.scatter(x, y2, color = 'red')
-plt.plot(x, poly_model2.predict(poly_x2), color = 'purple')
+# PLOT FOR VISUALIZING DEATHS
+plt.scatter(x,y_deaths, color = 'blue')
+plt.plot(x, rfr2.predict(x), color = 'red')
 plt.title('Covid-19 Cases (Days vs Deaths)')
 plt.xlabel('Days')
 plt.ylabel('Deaths')
 plt.show()
 
+# CALCULATING ACCURACY OF THE TWO MODELS
+print(f"The estimated accuracy for model for predicting cases is {round(rfr1.score(x,y_cases)*100,4)} %")
+print(f"The estimated accuracy for model for predicting deaths is {round(rfr2.score(x,y_deaths)*100,4)} %")
+
 # SAVING THE MODEL
-pickle.dump(poly_model1,open("model/covid_model_cases.pkl","wb"))
-pickle.dump(poly_model2,open("model/covid_model_deaths.pkl","wb"))
+pickle.dump(rfr1,open("model/covid_model_cases.pkl","wb"))
+pickle.dump(rfr2,open("model/covid_model_deaths.pkl","wb"))

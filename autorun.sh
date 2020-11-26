@@ -5,7 +5,7 @@
 echo "Autorun.sh verifies the requirements and runs the code properly"
 echo "To proceed enter Y, To cancel press N"
 read response
-if [[ $response == "y" || $response =="Y" ]]
+if [[ $response == "y" || $response == "Y" ]]
 then
 
     if which python3 >/dev/null;

@@ -15,7 +15,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
 import matplotlib.pyplot as plt
 
-# DATA PREPROCESSING
+# DATA PREPROCESSING 
 dataset = pd.read_csv('data/covid_data.csv')
 x = dataset.iloc[:,1].values
 y = dataset.iloc[:,2].values
@@ -32,10 +32,10 @@ y_val=np.reshape(y_val, (-1,1))
 # SCALING THE DATA
 scaler_x = MinMaxScaler()
 scaler_y = MinMaxScaler()
-xtrain_scale=scaler_x.transform(x_train)
-xval_scale=scaler_x.transform(x_val)
-ytrain_scale=scaler_y.transform(y_train)
-yval_scale=scaler_y.transform(y_val)
+xtrain_scale=scaler_x.fit_transform(x_train)
+xval_scale=scaler_x.fit_transform(x_val)
+ytrain_scale=scaler_y.fit_transform(y_train)
+yval_scale=scaler_y.fit_transform(y_val)
 
 # DEFINING NEURAL NETWORK AND ITS LAYERS
 model = tf.keras.Sequential()

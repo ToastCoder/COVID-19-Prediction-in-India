@@ -23,7 +23,7 @@ x = dataset.iloc[:,1].values
 y = dataset.iloc[:,2].values
 
 # TRAINING AND VALIDATION DATA SPLIT
-x_train,x_val,y_train,y_val = train_test_split(x,y,test_size = 0.2,random_state = 0)
+x_train, x_val, y_train, y_val = train_test_split(x, y, test_size = 0.2, random_state = 0)
 
 # RESHAPING THE DATA
 x_train = np.reshape(x_train, (-1,1))

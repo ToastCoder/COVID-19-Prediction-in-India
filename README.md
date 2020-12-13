@@ -2,7 +2,7 @@
 
 ## About:
 
-The code predicts the number of COVID-19 cases and deaths in India for the particular date which is provided. Implemented using TensorFlow..
+The code predicts the number of COVID-19 cases and deaths in India for the particular date which is provided. Implemented using TensorFlow.
 
 ## Developed by:
 

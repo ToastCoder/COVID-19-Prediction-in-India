@@ -15,6 +15,7 @@ from tensorflow.python.keras.models import Sequential
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import r2_score
+from tensorflow.keras.models import save_model
 import matplotlib.pyplot as plt
 
 # DATA PREPROCESSING 
@@ -32,11 +33,13 @@ y_train = np.reshape(y_train, (-1,1))
 y_val = np.reshape(y_val, (-1,1))
 
 # SCALING THE DATA
-scaler = MinMaxScaler()
-xtrain_scaled = scaler.fit_transform(x_train)
-xval_scaled = scaler.fit_transform(x_val)
-ytrain_scaled = scaler.fit_transform(y_train)
-yval_scaled = scaler.fit_transform(y_val)
+scaler_x = MinMaxScaler()
+scaler_y = MinMaxScaler()
+
+xtrain_scaled = scaler_x.fit_transform(x_train)
+xval_scaled = scaler_x.fit_transform(x_val)
+ytrain_scaled = scaler_y.fit_transform(y_train)
+yval_scaled = scaler_y.fit_transform(y_val)
 
 # DEFINING NEURAL NETWORK AND ITS LAYERS
 model = Sequential()
@@ -61,10 +64,10 @@ plt.show()
 
 # CALCULATING THE ESTIMATED ACCURACY
 ypred_scaled = model.predict(xval_scaled)
-y_pred = scaler.inverse_transform(ypred_scaled)
+y_pred = scaler_y.inverse_transform(ypred_scaled)
 print(f"The estimated accuracy of the model is: {round(r2_score(y_val,y_pred)*100,4)}")
 
 # SAVING THE MODEL
-PATH = 'model/model_deaths.h5'
-model.save(PATH)
+PATH = './model/model_deaths'
+save_model(model,PATH)
 print(f"Successfully stored the trained model at {PATH}")

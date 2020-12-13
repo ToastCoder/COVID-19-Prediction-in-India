@@ -65,4 +65,6 @@ y_pred = scaler.inverse_transform(ypred_scaled)
 print(f"The estimated accuracy of the model is: {round(r2_score(y_val,y_pred)*100,4)}")
 
 # SAVING THE MODEL
-model.save('model/model_cases')
+PATH = 'model/model_cases.h5'
+model.save(PATH)
+print(f"Successfully stored the trained model at {PATH}")

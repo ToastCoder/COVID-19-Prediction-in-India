@@ -1,4 +1,4 @@
-## COVID-19-Prediction-in-India (tf-alpha)
+## COVID-19-Prediction-in-India
 
 ### About:
 
@@ -7,5 +7,3 @@ The code predicts the number of COVID-19 cases in India for the particular day w
 ### Developed by:
 
 [Vigneshwar Ravichandar](https://github.com/ToastCoder)
-
-Experimental branch. Please clone master branch for stable code.

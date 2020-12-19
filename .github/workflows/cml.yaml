@@ -10,5 +10,5 @@ jobs:
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
-        python3 train_cases.py
+            python3 train_cases.py
           

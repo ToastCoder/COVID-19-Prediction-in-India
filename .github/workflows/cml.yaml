@@ -10,5 +10,5 @@ jobs:
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          bash autorun.sh
+        python3 train_cases.py
           

@@ -47,7 +47,6 @@ model.add(Dense(1,activation = 'linear'))
 # TRAINING THE MODEL
 model.compile(loss='mse', optimizer='adam', metrics=['mse','mae'])
 history=model.fit(xtrain_scaled, ytrain_scaled, epochs=500, batch_size=150, verbose=1, validation_split=0.2)
-predictions = model.predict(xval_scaled)
 
 # PLOTTING THE GRAPH FOR TRAIN-LOSS AND VALIDATION-LOSS
 print(history.history.keys())

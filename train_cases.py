@@ -23,28 +23,25 @@ dataset = pd.read_csv('data/covid_data.csv')
 x = dataset.iloc[:,1].values
 y = dataset.iloc[:,2].values
 
+# RESHAPING THE DATA
+x = np.reshape(x, (-1,1))
+y = np.reshape(y, (-1,1))
+
 # TRAINING AND VALIDATION DATA SPLIT
 x_train, x_val, y_train, y_val = train_test_split(x, y, test_size = 0.2, random_state = 0)
-
-# RESHAPING THE DATA
-x_train = np.reshape(x_train, (-1,1))
-x_val = np.reshape(x_val, (-1,1))
-y_train = np.reshape(y_train, (-1,1))
-y_val = np.reshape(y_val, (-1,1))
 
 # SCALING THE DATA
 scaler_x = MinMaxScaler()
 scaler_y = MinMaxScaler()
 
 xtrain_scaled = scaler_x.fit_transform(x_train)
-xval_scaled = scaler_x.fit_transform(x_val)
+xval_scaled = scaler_x.transform(x_val)
 ytrain_scaled = scaler_y.fit_transform(y_train)
-yval_scaled = scaler_y.fit_transform(y_val)
 
 # DEFINING NEURAL NETWORK AND ITS LAYERS
 model = Sequential()
 model.add(Dense(2, input_dim=1, kernel_initializer='normal', activation='relu'))
-model.add(Dense(472, activation = 'relu'))
+model.add(Dense(79, activation = 'relu'))
 model.add(Dense(1,activation = 'linear'))
 
 # TRAINING THE MODEL

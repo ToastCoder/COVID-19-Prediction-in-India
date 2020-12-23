@@ -9,8 +9,6 @@
 # IMPORTING REQUIRED MODULES
 import numpy as np
 import pandas as pd
-import tensorflow as tf
-from tensorflow import keras
 from datetime import datetime
 from tensorflow.keras.models import load_model
 from sklearn.preprocessing import MinMaxScaler
@@ -34,9 +32,9 @@ scaler_x = MinMaxScaler()
 scaler_y1 = MinMaxScaler()
 scaler_y2 = MinMaxScaler()
 
-xscaled = scaler_x.fit_transform(x)
-y1scaled = scaler_y1.fit_transform(y1)
-y2scaled = scaler_y2.fit_transform(y2)
+xscaled = scaler_x.fit(x)
+y1scaled = scaler_y1.fit(y1)
+y2scaled = scaler_y2.fit(y2)
 
 # DEFINING THE TRAINED MODEL
 model_c = load_model("model/model_cases",custom_objects=None,compile=True)
@@ -54,5 +52,5 @@ res1_scaled = model_c.predict(diffscaled)
 res2_scaled = model_d.predict(diffscaled)
 res1 = scaler_y1.inverse_transform(res1_scaled)
 res2 = scaler_y2.inverse_transform(res2_scaled)
-print("The estimated number of cases in day {} is {}".format(date2,int(res1)))
-print("The estimated number of deaths in day {} is {}".format(date2,int(res2)))
+print(f"The estimated number of cases in day {date2} is {int(res1)}")
+print(f"The estimated number of deaths in day {date2} is {int(res2)}")

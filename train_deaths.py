@@ -13,7 +13,6 @@ import tensorflow as tf
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import r2_score
-from tensorflow.keras.models import save_model
 import matplotlib.pyplot as plt
 
 # DATA PREPROCESSING
@@ -64,5 +63,5 @@ print(f"The estimated accuracy of the model is: {round(r2_score(y_val,y_pred)*10
 
 # SAVING THE MODEL
 PATH = './model/model_deaths'
-save_model(model,PATH)
+tf.keras.models.save_model(model,PATH)
 print(f"Successfully stored the trained model at {PATH}")

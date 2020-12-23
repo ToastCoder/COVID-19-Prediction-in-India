@@ -10,15 +10,13 @@
 import numpy as np
 import pandas as pd
 import tensorflow as tf
-from tensorflow.python.keras.layers import Dense
-from tensorflow.python.keras.models import Sequential
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import r2_score
 from tensorflow.keras.models import save_model
 import matplotlib.pyplot as plt
 
-# DATA PREPROCESSING 
+# DATA PREPROCESSING
 dataset = pd.read_csv('data/covid_data.csv')
 x = dataset.iloc[:,1].values
 y = dataset.iloc[:,3].values
@@ -30,19 +28,20 @@ y = np.reshape(y, (-1,1))
 # TRAINING AND VALIDATION DATA SPLIT
 x_train, x_val, y_train, y_val = train_test_split(x, y, test_size = 0.2, random_state = 0)
 
-# SCALING THE DATA
+# DEFINING THE SCALERS
 scaler_x = MinMaxScaler()
 scaler_y = MinMaxScaler()
 
+# TRANSFORMING TO SCALED DATA
 xtrain_scaled = scaler_x.fit_transform(x_train)
 xval_scaled = scaler_x.transform(x_val)
 ytrain_scaled = scaler_y.fit_transform(y_train)
 
 # DEFINING NEURAL NETWORK AND ITS LAYERS
-model = Sequential()
-model.add(Dense(2, input_dim=1, kernel_initializer='normal', activation='relu'))
-model.add(Dense(79, activation = 'relu'))
-model.add(Dense(1,activation = 'linear'))
+model = tf.keras.models.Sequential()
+model.add(tf.keras.layers.Dense(2, input_dim=1, kernel_initializer='normal', activation='relu'))
+model.add(tf.keras.layers.Dense(79, activation = 'relu'))
+model.add(tf.keras.layers.Dense(1,activation = 'linear'))
 
 # TRAINING THE MODEL
 model.compile(loss='mse', optimizer='adam', metrics=['mse','mae'])

@@ -44,10 +44,8 @@ y1_val = np.reshape(y1_val, (-1,1))
 scaler_x1 = MinMaxScaler()
 scaler_y1 = MinMaxScaler()
 
-x1train_scaled = scaler_x1.fit_transform(x1_train)
-x1val_scaled = scaler_x1.fit_transform(x1_val)
-y1train_scaled = scaler_y1.fit_transform(y1_train)
-y1val_scaled = scaler_y1.fit_transform(y1_val)
+x1train_scaled = scaler_x1.fit(x1_train)
+y1train_scaled = scaler_y1.fit(y1_train)
 
 # TRAINING AND VALIDATION DATA SPLIT (DAYS VS DEATHS)
 x2_train, x2_val, y2_train, y2_val = train_test_split(x, y2, test_size = 0.2, random_state = 0)

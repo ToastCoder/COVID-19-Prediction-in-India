@@ -32,9 +32,9 @@ scaler_x = MinMaxScaler()
 scaler_y1 = MinMaxScaler()
 scaler_y2 = MinMaxScaler()
 
-xscaled = scaler_x.fit(x)
-y1scaled = scaler_y1.fit(y1)
-y2scaled = scaler_y2.fit(y2)
+scaler_x.fit(x)
+scaler_y1.fit(y1)
+scaler_y2.fit(y2)
 
 # DEFINING THE TRAINED MODEL
 model_c = load_model("model/model_cases",custom_objects=None,compile=True)

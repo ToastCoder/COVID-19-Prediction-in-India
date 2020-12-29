@@ -38,7 +38,7 @@ ytrain_scaled = scaler_y.fit_transform(y_train)
 
 # DEFINING NEURAL NETWORK AND ITS LAYERS
 model = tf.keras.models.Sequential()
-model.add(tf.keras.layers.Dense(2, input_dim=1, kernel_initializer='normal', activation='relu'))
+model.add(tf.keras.layers.Dense(2, input_dim = 1, kernel_initializer='normal', activation='relu'))
 model.add(tf.keras.layers.Dense(79, activation = 'relu'))
 model.add(tf.keras.layers.Dense(1,activation = 'linear'))
 

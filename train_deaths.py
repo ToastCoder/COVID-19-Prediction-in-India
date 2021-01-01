@@ -29,6 +29,7 @@ MODEL_PATH = './model/model_deaths'
 dataset = pd.read_csv(DATASET_PATH)
 x = dataset.iloc[:,1].values
 y = dataset.iloc[:,3].values
+print(dataset.describe())
 
 # RESHAPING THE DATA
 x = np.reshape(x, (-1,1))

@@ -23,6 +23,7 @@ from sklearn.model_selection import train_test_split
 print(f"TensorFlow version: {tf.__version__}")
 
 DATASET_PATH = "data/covid_data.csv"
+
 # IMPORTING THE DATASET
 data = pd.read_csv(DATASET_PATH)
 

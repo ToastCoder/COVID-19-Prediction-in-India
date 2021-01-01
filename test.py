@@ -6,16 +6,25 @@
 
 # TOPICS: Regression, Machine Learning, TensorFlow
 
+# DISABLE TENSORFLOW DEBUG INFORMATION
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
+print("TensorFlow Debugging Information is hidden.")
+
 # IMPORTING REQUIRED MODULES
 import numpy as np
 import pandas as pd
 from datetime import datetime
+import tensorflow as tf
 from tensorflow.keras.models import load_model
-from sklearn.preprocessing import MinMaxScaler
+from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 
+print(f"TensorFlow version: {tf.__version__}")
+
+DATASET_PATH = "data/covid_data.csv"
 # IMPORTING THE DATASET
-data = pd.read_csv("data/covid_data.csv")
+data = pd.read_csv(DATASET_PATH)
 
 # SEGMENTING THE DATA
 x = data.iloc[:,1].values
@@ -28,29 +37,33 @@ y1 = np.reshape(y1, (-1,1))
 y2 = np.reshape(y2, (-1,1))
 
 # SCALING THE DATA
-scaler_x = MinMaxScaler()
-scaler_y1 = MinMaxScaler()
-scaler_y2 = MinMaxScaler()
+x_sc = StandardScaler()
+y1_sc = StandardScaler()
+y2_sc = StandardScaler()
 
-scaler_x.fit(x)
-scaler_y1.fit(y1)
-scaler_y2.fit(y2)
+x_sc.fit(x)
+y1_sc.fit(y1)
+y2_sc.fit(y2)
 
 # DEFINING THE TRAINED MODEL
-model_c = load_model("model/model_cases",custom_objects=None,compile=True)
-model_d = load_model("model/model_deaths",custom_objects=None,compile=True)
+model_c = tf.keras.models.load_model("model/model_cases", custom_objects=None, compile=True)
+model_d = tf.keras.models.load_model("model/model_deaths", custom_objects=None, compile=True)
 
 # PREDICTING VALUES USING TRAINED MODEL
 fn_date = str(input("Enter the date to be predicted in the format DD-MM-YYYY: "))
-date1 = datetime(2020,3,1)
+date1 = datetime(2020,3,2)
 date2 = datetime(int(fn_date[6:10]),int(fn_date[3:5]),int(fn_date[0:2]))
 diff = (date2-date1).days
+
 diff = np.array(diff)
 diff = np.reshape(diff, (-1,1))
-diffscaled = scaler_x.transform(diff)
-res1_scaled = model_c.predict(diffscaled)
-res2_scaled = model_d.predict(diffscaled)
-res1 = scaler_y1.inverse_transform(res1_scaled)
-res2 = scaler_y2.inverse_transform(res2_scaled)
-print(f"The estimated number of cases in day {date2} is {int(res1)}")
-print(f"The estimated number of deaths in day {date2} is {int(res2)}")
+diff_sc = x_sc.transform(diff)
+
+res1_sc = model_c.predict(diff_sc)
+res2_sc = model_d.predict(diff_sc)
+
+res1 = y1_sc.inverse_transform(res1_sc)
+res2 = y2_sc.inverse_transform(res2_sc)
+
+print(f"The estimated number of cases in day {date2.strftime('%d-%m-%Y')} is {int(res1)}")
+print(f"The estimated number of deaths in day {date2.strftime('%d-%m-%Y')} is {int(res2)}")

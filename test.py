@@ -31,7 +31,7 @@ data = pd.read_csv(DATASET_PATH)
 x = data.iloc[:,1].values
 y1 = data.iloc[:,2].values
 y2 = data.iloc[:,3].values
-print(dataset.describe())
+print(data.describe())
 
 # RESHAPING THE DATA
 x = np.reshape(x, (-1,1))
@@ -67,5 +67,5 @@ res2_sc = model_d.predict(diff_sc)
 res1 = y1_sc.inverse_transform(res1_sc)
 res2 = y2_sc.inverse_transform(res2_sc)
 
-print(f"The estimated number of cases in day {date2.strftime('%d-%m-%Y')} is {int(res1)}")
-print(f"The estimated number of deaths in day {date2.strftime('%d-%m-%Y')} is {int(res2)}")
+print(f"The estimated number of cases in day {date2.strftime('%d-%m-%Y')} is {'{:,}'.format(int(res1))}")
+print(f"The estimated number of deaths in day {date2.strftime('%d-%m-%Y')} is {'{:,}'.format(int(res2))}")

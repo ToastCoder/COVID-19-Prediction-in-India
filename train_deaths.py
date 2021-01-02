@@ -71,6 +71,7 @@ plt.ylabel('Loss')
 plt.xlabel('Epochs')
 plt.legend(['Training Loss', 'Validation Loss'], loc='upper left')
 plt.show()
+plt.savefig('graphs/deaths_loss_graph.png')
 
 # CALCULATING THE ACCURACY
 ypred_sc = model.predict(xval_sc)

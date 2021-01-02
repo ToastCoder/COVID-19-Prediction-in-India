@@ -33,7 +33,7 @@ data = pd.read_csv(DATASET_PATH)
 x = data.iloc[:,1].values
 y1 = data.iloc[:,2].values
 y2 = data.iloc[:,3].values
-print(dataset.describe())
+print(data.describe())
 
 # RESHAPING THE DATA
 x = np.reshape(x, (-1,1))
@@ -78,20 +78,24 @@ y2_est = model_d.predict(x_scaled)
 y2_est = y2_sc.inverse_transform(y2_est)
 
 # VISUALIZATION OF ACTUAL DATA TO PREDICTED DATA (DAYS VS CASES)
+plt.figure(0)
 plt.plot(x,y1, color = 'blue', label ='Actual Data' )
 plt.plot(x,y1_est, color = 'red', label = 'Predicted Data')
-plt.title('COVID-19 Prediction (Days vs Cases')
+plt.title('COVID-19 Prediction (Days vs Cases)')
 plt.xlabel('Days')
 plt.ylabel('Cases')
 plt.legend()
 plt.show()
+plt.savefig('graphs/days_vs_cases_ip.png')
 
 # VISUALIZATION OF ACTUAL DATA TO PREDICTED DATA (DAYS VS DEATHS)
+plt.figure(1)
 plt.plot(x,y2, color = 'blue', label ='Actual Data' )
 plt.plot(x,y2_est, color = 'red', label = 'Predicted Data')
-plt.title('COVID-19 Prediction (Days vs Deaths')
+plt.title('COVID-19 Prediction (Days vs Deaths)')
 plt.xlabel('Days')
 plt.ylabel('Deaths')
 plt.legend()
 plt.show()
+plt.savefig('graphs/days_vs_deaths_ip.png')
 

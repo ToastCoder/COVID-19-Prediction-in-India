@@ -1,6 +1,17 @@
+
+# COVID19 PREDICTION IN INDIA
+
+# FILE NAME: main.py
+
+# DEVELOPED BY: Vigneshwar Ravichandar
+
+# TOPICS: Regression, Machine Learning, TensorFlow
+
+# IMPORTING REQUIRED MODULES
 import os
 import argparse
 
+# FUNCTION TO CONVERT STR INPUT TO BOOL
 def strBool(v):
     if isinstance(v, bool):
        return v
@@ -11,6 +22,7 @@ def strBool(v):
     else:
         raise argparse.ArgumentTypeError('Expected a Boolean Value.')
 
+# FUNCTION FOR PARSING ARGUMENTS
 def parse():
     parser = argparse.ArgumentParser(description = 'Command Line Interface for COVID-19 Prediction in India')
     parser.add_argument('-tr','--train', type = str, help = 'Argument taken for training model(s).', default = "none")
@@ -20,7 +32,7 @@ def parse():
     args = parser.parse_args()
     return args
 
-
+# MAIN FUNCTION
 if __name__ == "__main__":
 
     args = parse()

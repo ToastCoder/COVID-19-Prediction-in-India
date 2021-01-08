@@ -10,5 +10,5 @@ jobs:
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
-            python3 main.py --train=all --test=True --install-requirements=True --visualize=True
+            python3 main.py --train=all --test=True --install_requirements=True --visualize=True
           

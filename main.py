@@ -25,25 +25,25 @@ if __name__ == "__main__":
 
     args = parse()
 
-    if (args.train == 'cases'):
-        os.system('python3 train_cases.py')
-
-    if (args.train == 'deaths'):
-        os.system('python3 train_deaths.py')
-
-    if (args.train == 'all'):
-        os.system('python3 train_cases.py')
-        os.system('python3 train_deaths.py')
-
     if (args.install_requirements):
         os.system('sudo apt install python3-pip')
         os.system('pip3 install -r requirements.txt')
+    
+    if (args.train == 'cases'):
+        os.system('python3 src/train_cases.py')
+
+    if (args.train == 'deaths'):
+        os.system('python3 src/train_deaths.py')
+
+    if (args.train == 'all'):
+        os.system('python3 src/train_cases.py')
+        os.system('python3 src/train_deaths.py')
 
     if (args.visualize):
-        os.system('python3 visualize.py')
+        os.system('python3 src/visualize.py')
     
     if (args.test):
-        os.system('python3 test.py')
+        os.system('python3 src/test.py')
     
 
 

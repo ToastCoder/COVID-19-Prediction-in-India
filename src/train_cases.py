@@ -1,6 +1,6 @@
 # COVID19 PREDICTION IN INDIA
 
-# FILE NAME: train_deaths.py
+# FILE NAME: train_cases.py
 
 # DEVELOPED BY: Vigneshwar Ravichandar
 
@@ -8,6 +8,7 @@
 
 # DISABLE TENSORFLOW DEBUG INFORMATION
 import os
+os.system('cd ..')
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
 print("TensorFlow Debugging Information is hidden.")
 
@@ -23,12 +24,12 @@ import matplotlib.pyplot as plt
 print(f"TensorFlow version: {tf.__version__}")
 
 DATASET_PATH = 'data/covid_data.csv'
-MODEL_PATH = './model/model_deaths'
+MODEL_PATH = './model/model_cases'
 
 # DATA PREPROCESSING 
 dataset = pd.read_csv(DATASET_PATH)
 x = dataset.iloc[:,1].values
-y = dataset.iloc[:,3].values
+y = dataset.iloc[:,2].values
 print(dataset.describe())
 
 # RESHAPING THE DATA
@@ -48,7 +49,7 @@ xval_sc = x_sc.transform(x_val)
 ytrain_sc = y_sc.fit_transform(y_train)
 
 # DEFINING NEURAL NETWORK FUNCTION
-def model_deaths():
+def model_cases():
     model = tf.keras.models.Sequential()
     model.add(tf.keras.layers.Dense(2, input_dim = 1, kernel_initializer='normal', activation='relu'))
     model.add(tf.keras.layers.Dense(79, activation = 'relu'))
@@ -58,7 +59,7 @@ def model_deaths():
     return model
 
 # TRAINING THE MODEL
-model = model_deaths()
+model = model_cases()
 model.compile(loss = 'mse', optimizer = 'adam', metrics = ['mse'])
 history = model.fit(xtrain_sc, ytrain_sc, epochs = 500, batch_size = 150, verbose = 1, validation_split = 0.2)
 print("Model Trained Successfully.")
@@ -71,7 +72,7 @@ plt.ylabel('Loss')
 plt.xlabel('Epochs')
 plt.legend(['Training Loss', 'Validation Loss'], loc='upper left')
 plt.show()
-plt.savefig('graphs/deaths_loss_graph.png')
+plt.savefig('graphs/cases_loss_graph.png')
 
 # CALCULATING THE ACCURACY
 ypred_sc = model.predict(xval_sc)

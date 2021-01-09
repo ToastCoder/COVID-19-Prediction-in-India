@@ -42,3 +42,10 @@ python3 main.py --test=True
 * `-req` (or) `--install_requirements` - Used to install the required dependancies.
   * **Argument type:** bool  
   * **Parameter type:** Optional
+
+
+## Images:
+
+![img1](https://github.com/ToastCoder/COVID-19-Prediction-in-India/blob/master/images/image1.png)
+
+ *Screenshot mentioning the training command* 

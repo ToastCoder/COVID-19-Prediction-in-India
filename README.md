@@ -3,7 +3,7 @@
 ## About:  
 The code predicts the number of COVID-19 cases and deaths in India for the respective date which is provided. It is implemented using TensorFlow. There are 2 models where is one model is used to predict the number of cases and the other one is used to predict the number of deaths. Both of these models are achieving a maximum accuracy of 99.8%. 
 
-## Supported OS:  
+## Supported Operating Systems:  
 Runs on Windows, Linux and MacOS.
 
 ## Tested with:  

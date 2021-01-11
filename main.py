@@ -1,4 +1,3 @@
-
 # COVID19 PREDICTION IN INDIA
 
 # FILE NAME: main.py

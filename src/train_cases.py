@@ -60,8 +60,8 @@ def model_cases():
 
 # TRAINING THE MODEL
 model = model_cases()
-model.compile(loss = 'mse', optimizer = 'adam', metrics = ['mse'])
-history = model.fit(xtrain_sc, ytrain_sc, epochs = 500, batch_size = 150, verbose = 1, validation_split = 0.2)
+model.compile(loss = 'huber', optimizer = 'adamax', metrics = ['mse'])
+history = model.fit(xtrain_sc, ytrain_sc, epochs = 500, batch_size = 150, verbose = 1, validation_split = 0.1)
 print("Model Trained Successfully.")
 
 # PLOTTING THE LOSS GRAPH

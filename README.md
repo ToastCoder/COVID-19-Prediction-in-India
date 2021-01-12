@@ -9,7 +9,7 @@
 ## Tested with:  
 * Python 3.8.5
 * TensorFlow 2.4.0
-* WSL Ubuntu 20.04 LTS on Windows 10 version 2008
+* WSL Ubuntu 20.04 LTS on Windows 10 version 20H2
 
 ## Developed by:  
  [Vigneshwar Ravichandar](https://github.com/ToastCoder)

@@ -48,12 +48,12 @@ python3 main.py --test=True
 
 ![img1](https://github.com/ToastCoder/COVID-19-Prediction-in-India/blob/master/images/img1.png)
 
-*Screenshot mentioning the training command* 
+                              *Screenshot mentioning the training command* 
 
 ![img2](https://github.com/ToastCoder/COVID-19-Prediction-in-India/blob/master/images/img2.png)
 
-*Screenshot mentioning the testing command*  
+                              *Screenshot mentioning the testing command*  
 
 ![img3](https://github.com/ToastCoder/COVID-19-Prediction-in-India/blob/master/images/img3.png)
 
-*Screenshot mentioning the visualizing command*  
+                            *Screenshot mentioning the visualizing command*  

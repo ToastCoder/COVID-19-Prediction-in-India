@@ -6,10 +6,6 @@
 
 # TOPICS: Regression, Machine Learning, TensorFlow
 
-# IMPORTING REQUIRED MODULES
-import os
-import argparse
-
 # FUNCTION TO CONVERT STR INPUT TO BOOL
 def strBool(v):
     if isinstance(v, bool):
@@ -33,6 +29,10 @@ def parse():
 
 # MAIN FUNCTION
 if __name__ == "__main__":
+
+    # IMPORTING REQUIRED MODULES
+    import os
+    import argparse
 
     args = parse()
 

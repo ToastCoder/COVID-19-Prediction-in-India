@@ -7,9 +7,9 @@
  Runs on Windows, Linux and MacOS.
 
 ## Tested with:  
-* Python 3.8.5
+* Python 3.8.5 64-bit
 * TensorFlow 2.4.0
-* WSL Ubuntu 20.04 LTS on Windows 10 version 20H2
+* Pop OS 20.04 LTS
 
 ## Developed by:  
  [Vigneshwar Ravichandar](https://github.com/ToastCoder)
@@ -46,6 +46,6 @@ python3 main.py --test=True
 
 ## Images:
 
-![img1](https://github.com/ToastCoder/COVID-19-Prediction-in-India/blob/master/images/image1.png)
+![img1](https://github.com/ToastCoder/COVID-19-Prediction-in-India/blob/master/images/img1.png)
 
   *Screenshot mentioning the training command* 

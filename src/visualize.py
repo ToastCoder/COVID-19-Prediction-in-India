@@ -23,6 +23,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score
 import matplotlib.pyplot as plt
 
+plt.style.use('ggplot')
+
 print(f"TensorFlow version: {tf.__version__}")
 
 DATASET_PATH = "data/covid_data.csv"

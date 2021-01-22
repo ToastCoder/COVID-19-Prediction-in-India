@@ -6,11 +6,9 @@
 
 # TOPICS: Regression, Machine Learning, TensorFlow
 
-# DISABLE TENSORFLOW DEBUG INFORMATION
+# MOVING TO THE MAIN DIRECTORY
 import os
 os.system('cd ..')
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
-print("TensorFlow Debugging Information is hidden.")
 
 # IMPORTING REQUIRED MODULES
 import numpy as np
@@ -88,8 +86,8 @@ plt.title('COVID-19 Prediction (Days vs Cases)')
 plt.xlabel('Days')
 plt.ylabel('Cases')
 plt.legend()
-plt.show()
 plt.savefig('graphs/days_vs_cases_ip.png')
+plt.show()
 
 # VISUALIZATION OF ACTUAL DATA TO PREDICTED DATA (DAYS VS DEATHS)
 plt.figure(1)
@@ -99,6 +97,6 @@ plt.title('COVID-19 Prediction (Days vs Deaths)')
 plt.xlabel('Days')
 plt.ylabel('Deaths')
 plt.legend()
-plt.show()
 plt.savefig('graphs/days_vs_deaths_ip.png')
+plt.show()
 

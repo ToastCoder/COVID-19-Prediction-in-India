@@ -6,11 +6,9 @@
 
 # TOPICS: Regression, Machine Learning, TensorFlow
 
-# DISABLE TENSORFLOW DEBUG INFORMATION
+# MOVING TO THE MAIN DIRECTORY
 import os
 os.system('cd ..')
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
-print("TensorFlow Debugging Information is hidden.")
 
 # IMPORTING REQUIRED MODULES
 import numpy as np
@@ -73,8 +71,8 @@ plt.title('Loss Graph')
 plt.ylabel('Loss')
 plt.xlabel('Epochs')
 plt.legend(['Training Loss', 'Validation Loss'], loc='upper left')
-plt.show()
 plt.savefig('graphs/deaths_loss_graph.png')
+plt.show()
 
 # CALCULATING THE ACCURACY
 ypred_sc = model.predict(xval_sc)

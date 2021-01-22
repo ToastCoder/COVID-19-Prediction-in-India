@@ -33,6 +33,10 @@ if __name__ == "__main__":
     # IMPORTING REQUIRED MODULES
     import os
     import argparse
+    
+    # DISABLING TENSORFLOW DEBUG INFORMATION
+    os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
+    print("TensorFlow Debugging Information is hidden.")
 
     args = parse()
 

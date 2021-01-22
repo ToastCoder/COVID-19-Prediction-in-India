@@ -57,3 +57,4 @@ python3 main.py --test=True
 ![img3](https://github.com/ToastCoder/COVID-19-Prediction-in-India/blob/master/images/img3.png)
 
                             *Screenshot mentioning the visualizing command*  
+

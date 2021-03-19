@@ -6,6 +6,16 @@
 
 # TOPICS: Regression, Machine Learning, TensorFlow
 
+# SET OF DESCRIPTIONS
+description = ['Command Line Interface for COVID-19 Prediction in India',
+                'Argument taken for training model(s).',
+                'Argument taken for installing requirements',
+                'Argument taken for visualizing metrics',
+                'Argument for testing with custom input',
+                'Argument for mentioning the number of Epochs',
+                'Argument for mentioning the amount of Batch Size'
+                ]
+
 # FUNCTION TO CONVERT STR INPUT TO BOOL
 def strBool(v):
     if isinstance(v, bool):
@@ -19,11 +29,13 @@ def strBool(v):
 
 # FUNCTION FOR PARSING ARGUMENTS
 def parse():
-    parser = argparse.ArgumentParser(description = 'Command Line Interface for COVID-19 Prediction in India')
-    parser.add_argument('-tr','--train', type = str, help = 'Argument taken for training model(s).', default = "none")
-    parser.add_argument('-req','--install_requirements', type = strBool, help = 'Argument taken for installing requirements', default = False)
-    parser.add_argument('-v','--visualize', type = strBool, help = 'Argument taken for visualizing metrics', default = False)
-    parser.add_argument('-t','--test', type = strBool, help = 'Argument for testing with custom input',required = True)
+    parser = argparse.ArgumentParser(description = description[0])
+    parser.add_argument('-tr','--train', type = str, help = description[1], default = "none")
+    parser.add_argument('-req','--install_requirements', type = strBool, help = description[2], default = False)
+    parser.add_argument('-v','--visualize', type = strBool, help = description[3], default = False)
+    parser.add_argument('-t','--test', type = strBool, help = description[4], required = True)
+    parser.add_argument('-e','--epochs',type = int, help = description[5], default = 500, required = False)
+    parser.add_argument('-bs', '--batch_size',type = int, help = description[6], default = 150, required = False)
     args = parser.parse_args()
     return args
 
@@ -45,14 +57,14 @@ if __name__ == "__main__":
         os.system('pip3 install -r requirements.txt')
     
     if (args.train == 'cases'):
-        os.system('python3 src/train_cases.py')
+        os.system(f'python3 src/train_cases.py --epochs={args.epochs} --batch_size={args.batch_size}')
 
     if (args.train == 'deaths'):
-        os.system('python3 src/train_deaths.py')
+        os.system(f'python3 src/train_deaths.py --epochs={args.epochs} --batch_size={args.batch_size}')
 
     if (args.train == 'all'):
-        os.system('python3 src/train_cases.py')
-        os.system('python3 src/train_deaths.py')
+        os.system(f'python3 src/train_cases.py --epochs={args.epochs} --batch_size={args.batch_size}')
+        os.system(f'python3 src/train_deaths.py --epochs={args.epochs} --batch_size={args.batch_size}')
 
     if (args.visualize):
         os.system('python3 src/visualize.py')

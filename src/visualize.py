@@ -6,10 +6,6 @@
 
 # TOPICS: Regression, Machine Learning, TensorFlow
 
-# MOVING TO THE MAIN DIRECTORY
-import os
-os.system('cd ..')
-
 # IMPORTING REQUIRED MODULES
 import numpy as np
 import pandas as pd

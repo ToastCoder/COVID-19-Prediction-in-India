@@ -16,12 +16,23 @@ from sklearn.metrics import r2_score
 import matplotlib.pyplot as plt
 import argparse
 
+# FUNCTION FOR PARSING ARGUMENTS
+def parse():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-e','--epochs',type = int, default = 500, required = False)
+    parser.add_argument('-bs', '--batch_size',type = int, default = 150, required = False)
+    parser.add_argument('-l','--loss',type = str, default = 'huber', required = False)
+    parser.add_argument('-op','--optimizer', type = str, default = 'adamax', required = False)
+    args = parser.parse_args()
+    return args
+
 plt.style.use('ggplot')
 
 print(f"TensorFlow version: {tf.__version__}")
 
 DATASET_PATH = 'data/covid_data.csv'
 MODEL_PATH = './model/model_cases'
+args = parse()
 
 # DATA PREPROCESSING 
 dataset = pd.read_csv(DATASET_PATH)
@@ -57,8 +68,8 @@ def model_cases():
 
 # TRAINING THE MODEL
 model = model_cases()
-model.compile(loss = 'huber', optimizer = 'adamax', metrics = ['mse'])
-history = model.fit(xtrain_sc, ytrain_sc, epochs = 500, batch_size = 150, verbose = 1, validation_split = 0.1)
+model.compile(loss = args.loss, optimizer = args.optimizer, metrics = ['mse'])
+history = model.fit(xtrain_sc, ytrain_sc, epochs = args.epochs, batch_size = args.batch_size, verbose = 1, validation_split = 0.1)
 print("Model Trained Successfully.")
 
 # PLOTTING THE LOSS GRAPH

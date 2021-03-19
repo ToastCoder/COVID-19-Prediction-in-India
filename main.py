@@ -7,14 +7,15 @@
 # TOPICS: Regression, Machine Learning, TensorFlow
 
 # SET OF DESCRIPTIONS
-description = ['Command Line Interface for COVID-19 Prediction in India',
+description = [ 'Command Line Interface for COVID-19 Prediction in India',
                 'Argument taken for training model(s).',
                 'Argument taken for installing requirements',
                 'Argument taken for visualizing metrics',
                 'Argument for testing with custom input',
                 'Argument for mentioning the number of Epochs',
-                'Argument for mentioning the amount of Batch Size'
-                ]
+                'Argument for mentioning the amount of Batch Size',
+                'Argument for mentioning the Loss Function',
+                'Argument for mentioning the Optimizer']
 
 # FUNCTION TO CONVERT STR INPUT TO BOOL
 def strBool(v):
@@ -36,6 +37,8 @@ def parse():
     parser.add_argument('-t','--test', type = strBool, help = description[4], required = True)
     parser.add_argument('-e','--epochs',type = int, help = description[5], default = 500, required = False)
     parser.add_argument('-bs', '--batch_size',type = int, help = description[6], default = 150, required = False)
+    parser.add_argument('-l','--loss',type = str, help = description[7],default = 'huber', required = False)
+    parser.add_argument('-op','--optimizer', type = str, help = description[8], default = 'adamax', required = False)
     args = parser.parse_args()
     return args
 
@@ -57,14 +60,14 @@ if __name__ == "__main__":
         os.system('pip3 install -r requirements.txt')
     
     if (args.train == 'cases'):
-        os.system(f'python3 src/train_cases.py --epochs={args.epochs} --batch_size={args.batch_size}')
+        os.system(f'python3 src/train_cases.py --epochs={args.epochs} --batch_size={args.batch_size} --loss={args.loss} --optimizer={args.optimizer}')
 
     if (args.train == 'deaths'):
-        os.system(f'python3 src/train_deaths.py --epochs={args.epochs} --batch_size={args.batch_size}')
+        os.system(f'python3 src/train_deaths.py --epochs={args.epochs} --batch_size={args.batch_size} --loss={args.loss} --optimizer={args.optimizer}')
 
     if (args.train == 'all'):
-        os.system(f'python3 src/train_cases.py --epochs={args.epochs} --batch_size={args.batch_size}')
-        os.system(f'python3 src/train_deaths.py --epochs={args.epochs} --batch_size={args.batch_size}')
+        os.system(f'python3 src/train_cases.py --epochs={args.epochs} --batch_size={args.batch_size} --loss={args.loss} --optimizer={args.optimizer}')
+        os.system(f'python3 src/train_deaths.py --epochs={args.epochs} --batch_size={args.batch_size} --loss={args.loss} --optimizer={args.optimizer}')
 
     if (args.visualize):
         os.system('python3 src/visualize.py')

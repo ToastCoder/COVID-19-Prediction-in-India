@@ -6,10 +6,6 @@
 
 # TOPICS: Regression, Machine Learning, TensorFlow
 
-# MOVING TO THE MAIN DIRECTORY
-import os
-os.system('cd ..')
-
 # IMPORTING REQUIRED MODULES
 import numpy as np
 import pandas as pd
@@ -18,6 +14,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import r2_score
 import matplotlib.pyplot as plt
+import argparse
 
 plt.style.use('ggplot')
 

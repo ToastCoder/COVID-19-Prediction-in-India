@@ -6,10 +6,6 @@
 
 # TOPICS: Regression, Machine Learning, TensorFlow
 
-# MOVING TO THE MAIN DIRECTORY
-import os
-os.system('cd ..')
-
 # IMPORTING REQUIRED MODULES
 import numpy as np
 import pandas as pd
@@ -18,6 +14,17 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import r2_score
 import matplotlib.pyplot as plt
+import argparse
+
+# FUNCTION FOR PARSING ARGUMENTS
+def parse():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-e','--epochs',type = int, default = 500, required = False)
+    parser.add_argument('-bs', '--batch_size',type = int, default = 150, required = False)
+    parser.add_argument('-l','--loss',type = str, default = 'huber', required = False)
+    parser.add_argument('-op','--optimizer', type = str, default = 'adamax', required = False)
+    args = parser.parse_args()
+    return args
 
 plt.style.use('ggplot')
 

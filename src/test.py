@@ -6,12 +6,6 @@
 
 # TOPICS: Regression, Machine Learning, TensorFlow
 
-# DISABLE TENSORFLOW DEBUG INFORMATION
-import os
-os.system('cd ..')
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
-print("TensorFlow Debugging Information is hidden.")
-
 # IMPORTING REQUIRED MODULES
 import numpy as np
 import pandas as pd

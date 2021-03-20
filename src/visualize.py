@@ -1,3 +1,5 @@
+#-------------------------------------------------------------------------------------------------------------------------------
+
 # COVID19 PREDICTION IN INDIA
 
 # FILE NAME: visualize.py
@@ -5,6 +7,8 @@
 # DEVELOPED BY: Vigneshwar Ravichandar
 
 # TOPICS: Regression, Machine Learning, TensorFlow
+
+#-------------------------------------------------------------------------------------------------------------------------------
 
 # IMPORTING REQUIRED MODULES
 import numpy as np

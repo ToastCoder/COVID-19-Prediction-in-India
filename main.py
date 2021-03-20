@@ -1,3 +1,5 @@
+#-------------------------------------------------------------------------------------------------------------------------------
+
 # COVID19 PREDICTION IN INDIA
 
 # FILE NAME: main.py
@@ -5,6 +7,8 @@
 # DEVELOPED BY: Vigneshwar Ravichandar
 
 # TOPICS: Regression, Machine Learning, TensorFlow
+
+#-------------------------------------------------------------------------------------------------------------------------------
 
 # SET OF DESCRIPTIONS
 description = [ 'Command Line Interface for COVID-19 Prediction in India',

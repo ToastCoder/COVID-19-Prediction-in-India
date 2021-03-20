@@ -32,7 +32,8 @@ data = pd.read_csv(DATASET_PATH)
 x = data.iloc[:,1].values
 y1 = data.iloc[:,2].values
 y2 = data.iloc[:,3].values
-print(data.describe())
+print("Dataset Description:\n",data.describe())
+print("Dataset Head\n",data.head())
 
 # RESHAPING THE DATA
 x = np.reshape(x, (-1,1))

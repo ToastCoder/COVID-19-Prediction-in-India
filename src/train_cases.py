@@ -38,7 +38,9 @@ args = parse()
 dataset = pd.read_csv(DATASET_PATH)
 x = dataset.iloc[:,1].values
 y = dataset.iloc[:,2].values
-print(dataset.describe())
+print("Dataset Description:\n",dataset.describe())
+print("Dataset Head\n",dataset.head())
+
 
 # RESHAPING THE DATA
 x = np.reshape(x, (-1,1))

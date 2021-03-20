@@ -32,6 +32,7 @@ print(f"TensorFlow version: {tf.__version__}")
 
 DATASET_PATH = 'data/covid_data.csv'
 MODEL_PATH = './model/model_deaths'
+args = parse()
 
 # DATA PREPROCESSING 
 dataset = pd.read_csv(DATASET_PATH)
@@ -67,8 +68,8 @@ def model_deaths():
 
 # TRAINING THE MODEL
 model = model_deaths()
-model.compile(loss = 'huber', optimizer = 'adamax', metrics = ['mse'])
-history = model.fit(xtrain_sc, ytrain_sc, epochs = 500, batch_size = 150, verbose = 1, validation_split = 0.1)
+model.compile(loss = args.loss, optimizer = args.optimizer, metrics = ['mse'])
+history = model.fit(xtrain_sc, ytrain_sc, epochs = args.epochs, batch_size = args.batch_size, verbose = 1, validation_split = 0.1)
 print("Model Trained Successfully.")
 
 # PLOTTING THE LOSS GRAPH

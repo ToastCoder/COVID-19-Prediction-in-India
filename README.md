@@ -7,9 +7,9 @@
  Runs on Windows, Linux and MacOS.
 
 ## Tested with:  
-* Python 3.8.5 64-bit
-* TensorFlow 2.4.0
-* Pop OS 20.04 LTS
+* Python 3.8.6 64-bit
+* TensorFlow 2.4.1
+* Pop OS 20.10
 
 ## Developed by:  
  [Vigneshwar Ravichandar](https://github.com/ToastCoder)
@@ -30,6 +30,7 @@ python3 main.py --test=True
     * `cases` - Used for training the model_cases only.
     * `deaths` - Used for training the model_deaths only.
     * `all` - Used for training both the models.
+  * **Default value:** "none"
 
 * `-t` (or) `--test` - Used to test the Neural Network with custom inputs.
   * **Argument type:** bool  
@@ -38,11 +39,32 @@ python3 main.py --test=True
 * `-v` (or) `--visualize` - Used to vizualize the metrics.
   * **Argument type:** bool  
   * **Parameter type:** Optional
+  * **Default value:** False
   
 * `-req` (or) `--install_requirements` - Used to install the required dependancies.
   * **Argument type:** bool  
   * **Parameter type:** Optional
+  * **Default value:** False
 
+* `-e` (or) `--epochs` - Used for mentioning the number of epochs for both of the models.
+  * **Argument type:** int
+  * **Parameter type:** Optional
+  * **Default value:** 500
+
+* `-bs` (or) `--batch_size` - Used for mentioning the batch size for both of the models.
+  * **Argument type:** int
+  * **Parameter type:** Optional
+  * **Default value:** 150
+
+* `-l` (or) `--loss` - Used for mentioning the loss function for both of the models.
+  * **Argument type:** str
+  * **Parameter type:** Optional
+  * **Default value:** "huber"
+
+* `-op` (or) `--optimizer` - Used for mentioning the optimizer for both of the models.
+  * **Argument type:** str
+  * **Parameter type:** Optional
+  * **Default value:** "adamax"
 
 ## Images:
 

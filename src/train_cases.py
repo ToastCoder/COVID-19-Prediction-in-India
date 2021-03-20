@@ -41,7 +41,6 @@ y = dataset.iloc[:,2].values
 print("Dataset Description:\n",dataset.describe())
 print("Dataset Head\n",dataset.head())
 
-
 # RESHAPING THE DATA
 x = np.reshape(x, (-1,1))
 y = np.reshape(y, (-1,1))

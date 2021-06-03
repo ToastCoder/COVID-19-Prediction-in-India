@@ -1,27 +1,49 @@
 # COVID 19 Prediction in India
 
-## About:  
+### About:  
  The code predicts the number of COVID-19 cases and deaths in India for the respective date which is provided. It is implemented using TensorFlow. There are 2 models where is one model is used to predict the number of cases and the other one is used to predict the number of deaths. Both of these models are achieving a maximum accuracy of 99.95%. 
 
-## Supported Operating Systems:  
+### Supported Operating Systems:  
  Runs on Windows, Linux and MacOS.
 
-## Tested with:  
+### Tested with:  
 * Python 3.8.6 64-bit
 * TensorFlow 2.4.1
 * Pop OS 20.10
 
-## Developed by:  
+### Developed by:  
  [Vigneshwar Ravichandar](https://github.com/ToastCoder)
 
-## Execution Instructions:  
+### Execution Instructions:  
  Execute the following command in the terminal to run with default procedure.
 
 ```python
 python3 main.py --test=True
 ```
+### About the Neural Network: 
+  A typical form of Artificial Neural Network (ANN) is used here. The layers of the Neural Network Architecture is as follows... 
+```
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense (Dense)                (None, 2)                 4         
+_________________________________________________________________
+dense_1 (Dense)              (None, 79)                237       
+_________________________________________________________________
+dense_2 (Dense)              (None, 79)                6320      
+_________________________________________________________________
+dense_3 (Dense)              (None, 79)                6320      
+_________________________________________________________________
+dense_4 (Dense)              (None, 1)                 80        
+=================================================================
+Total params: 12,961
+Trainable params: 12,961
+Non-trainable params: 0
+``` 
+The ANN is fitted with the normalized data done using `StandardScaler()`. The model is trained with the `huber` loss function and `adamax` optimizer. 
 
-## Command Line Arguments:
+### Command Line Arguments:
 
 * `-tr` (or) `--train` - Used to train the Neural Network.  
   * **Argument type:** str  

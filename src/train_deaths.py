@@ -73,6 +73,7 @@ def model_deaths():
 
 # TRAINING THE MODEL
 model = model_deaths()
+model.summary()
 model.compile(loss = args.loss, optimizer = args.optimizer, metrics = ['mse'])
 history = model.fit(xtrain_sc, ytrain_sc, epochs = args.epochs, batch_size = args.batch_size, verbose = 1, validation_split = 0.1)
 print("Model Trained Successfully.")

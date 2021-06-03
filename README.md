@@ -14,6 +14,9 @@
 ### Developed by:  
  [Vigneshwar Ravichandar](https://github.com/ToastCoder)
 
+### Explanation: 
+  Regression is the concept used here. Regression is a statistical method used in finance, investing, and other disciplines that attempts to determine the strength and character of the relationship between one dependent variable (usually denoted by Y) and a series of other variables (known as independent variables). Regression is used here where the relation between No of days (X) and Cases/Deaths (Y) is found by the model and the unknown Cases/Deaths (Y) is found for any value of No of Days (X). 
+
 ### About the Neural Network: 
   A typical form of Artificial Neural Network (ANN) is used here. The layers of the Neural Network Architecture is as follows... 
 ```

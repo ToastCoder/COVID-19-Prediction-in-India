@@ -14,12 +14,6 @@
 ### Developed by:  
  [Vigneshwar Ravichandar](https://github.com/ToastCoder)
 
-### Execution Instructions:  
- Execute the following command in the terminal to run with default procedure.
-
-```python
-python3 main.py --test=True
-```
 ### About the Neural Network: 
   A typical form of Artificial Neural Network (ANN) is used here. The layers of the Neural Network Architecture is as follows... 
 ```
@@ -42,6 +36,13 @@ Trainable params: 12,961
 Non-trainable params: 0
 ``` 
 The ANN is fitted with the normalized data done using `StandardScaler()`. The model is trained with the `huber` loss function and `adamax` optimizer. 
+
+### Execution Instructions:  
+ Execute the following command in the terminal to run with default procedure.
+
+```python
+python3 main.py --test=True
+```
 
 ### Command Line Arguments:
 

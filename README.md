@@ -5,9 +5,9 @@
 
 ### Tested with: 
 #### Operating System:
-    Pop OS 20.10
+  * Pop OS 20.10 
 #### Python version:
-    Python 3.8.6 64-bit
+  * Python 3.8.6 64-bit 
 #### Packages:
   * tensorflow 2.4.1
   * numpy 1.19.5

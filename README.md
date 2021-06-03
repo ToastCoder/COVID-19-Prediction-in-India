@@ -92,7 +92,7 @@ python3 main.py --test=True
   * **Parameter type:** Optional
   * **Default value:** "adamax"
 
-## Images:
+### Images:
 
 ![img1](https://github.com/ToastCoder/COVID-19-Prediction-in-India/blob/master/images/img1.png)
 

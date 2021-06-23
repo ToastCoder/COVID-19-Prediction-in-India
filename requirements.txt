@@ -3,7 +3,5 @@ tensorflow
 scikit-learn
 numpy
 pandas
-matplotlib
-sqlite
 datetime
 scipy

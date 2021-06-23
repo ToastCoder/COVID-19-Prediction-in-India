@@ -1,8 +1,7 @@
 numpy
 pandas
-matplotlib
+scipy
 sklearn
 tensorflow
 datetime
-scipy
 

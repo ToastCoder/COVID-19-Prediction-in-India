@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <style>
+    html,body {
+      margin:0;
+      padding:0;
+      font-family:Arial;
+      font-size:10px;
+    }
+    body {
+      padding: 20px 45px;
+    }
+    </style>
+  </head>
+  <body>
+      <form id="predict" method="POST">
+        <label for="date">Date:</label><br>
+        <input type="text" id="date" name="date"><br>
+        <label for="date">Month:</label><br>
+        <input type="text" id="month" name="month"><br>
+        <label for="date">Year:</label><br>
+        <input type="text" id="year" name="year"><br>
+
+        <input type="submit" value="Predict!">
+    </form>
+    <hr>
+    <div id="predictionOutcome"></div>
+    <script>
+      $("form#predict").submit(function(event) {
+          event.preventDefault();
+          var allElements=event.target.elements;
+          var json={
+            "date":allElements.date.value,
+            "month":allElements.month.value,
+            "year":allElements.year.value,
+            
+          }
+          var jsonStr=JSON.stringify(json)
+          console.log(jsonStr)
+          $.ajax({
+            url: "/api/predict",
+            data: JSON.parse(jsonStr),
+            method: "GET",
+            success: function(result) {
+                let predictedResult=result;
+                let htmlStr="";
+                htmlStr+="<b>The estimated number of cases on ";
+                htmlStr+=allElements.date.value;
+                htmlStr+="-"
+                htmlStr+=allElements.month.value;
+                htmlStr+="-";
+                htmlStr+=allElements.year.value;
+                htmlStr+=" is "
+                htmlStr+= predictedResult[0];
+                htmlStr+="<b>The estimated number of deaths on ";
+                htmlStr+=allElements.date.value;
+                htmlStr+="-"
+                htmlStr+=allElements.month.value;
+                htmlStr+="-";
+                htmlStr+=allElements.year.value;
+                htmlStr+=" is "
+                htmlStr+= predictedResult[1];
+                $("#predictionOutcome").html(htmlStr);
+            },
+            error: function(err) {
+              console.log(err);
+            }
+          });
+          return false
+      });
+    </script>
+  </body>
+</html>

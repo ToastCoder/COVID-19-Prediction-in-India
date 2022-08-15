@@ -74,5 +74,4 @@ def predict():
 
 if __name__ == "__main_":
 	app.debug = False
-	from werkzeug.serving import run_simple
-	run_simple("localhost", 5000, app)
+	app.run(port=5000)
